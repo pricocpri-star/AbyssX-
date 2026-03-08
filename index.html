@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AbyssX • Undetectable Roblox Scripts</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background: radial-gradient(ellipse at bottom, #0b001f 0%, #000000 100%);
+      color: #e0e0ff;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      min-height: 100vh;
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+    .stars {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: 
+        radial-gradient(circle at 15% 50%, rgba(120,100,255,0.07) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(200,80,255,0.05) 0%, transparent 35%),
+        radial-gradient(circle at 40% 80%, rgba(80,180,255,0.06) 0%, transparent 30%);
+      z-index: 1;
+    }
+    .twinkle {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 0 8px white;
+      animation: twinkle 5s infinite alternate;
+      opacity: 0.6;
+    }
+    @keyframes twinkle {
+      0% { opacity: 0.3; transform: scale(0.7); }
+      100% { opacity: 0.9; transform: scale(1.2); }
+    }
+    header {
+      text-align: center;
+      padding: 80px 20px 40px;
+      position: relative;
+      z-index: 2;
+    }
+    h1 {
+      font-size: 5rem;
+      background: linear-gradient(90deg, #a78bfa, #7dd3fc, #c084fc, #f472b6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 50px rgba(168, 85, 247, 0.8);
+      margin-bottom: 0.2em;
+      letter-spacing: 5px;
+    }
+    .subtitle { font-size: 1.6rem; color: #b0a0ff; opacity: 0.9; margin-bottom: 3rem; }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      margin: 2rem 0 4rem;
+      position: relative;
+      z-index: 2;
+    }
+    .nav-btn {
+      padding: 16px 36px;
+      font-size: 1.25rem;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 999px;
+      transition: all 0.4s;
+      background: rgba(30, 20, 60, 0.6);
+      border: 1px solid rgba(168, 85, 247, 0.5);
+      color: #d5c0ff;
+      backdrop-filter: blur(12px);
+    }
+    .nav-btn:hover, .nav-btn.active {
+      background: linear-gradient(45deg, #7c3aed, #c084fc);
+      color: white;
+      transform: translateY(-5px);
+      box-shadow: 0 18px 40px rgba(168, 85, 247, 0.65);
+      border-color: transparent;
+    }
+    .section {
+      max-width: 1200px;
+      margin: 0 auto 90px;
+      padding: 0 35px;
+      position: relative;
+      z-index: 2;
+      display: none;
+    }
+    .section.active { display: block; }
+    h2 {
+      font-size: 3.2rem;
+      color: #c4b5fd;
+      margin-bottom: 2.2rem;
+      text-align: center;
+      text-shadow: 0 0 30px rgba(196, 181, 253, 0.8);
+    }
+    .creator-card {
+      background: rgba(25, 15, 55, 0.65);
+      border: 1px solid rgba(168, 85, 247, 0.45);
+      border-radius: 28px;
+      padding: 3rem;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 20px 70px rgba(0,0,0,0.75),
+                  inset 0 0 35px rgba(168, 85, 247, 0.15);
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .creator-text p {
+      font-size: 1.25rem;
+      line-height: 1.9;
+      color: #d0c0ff;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .creator-text strong {
+      color: #c084fc;
+      text-shadow: 0 0 12px rgba(192, 132, 252, 0.7);
+    }
+    .script-box {
+      background: rgba(30, 20, 60, 0.6);
+      border: 1px solid rgba(168, 85, 247, 0.45);
+      border-radius: 22px;
+      padding: 2.8rem;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 18px 60px rgba(0,0,0,0.7),
+                  inset 0 0 30px rgba(168, 85, 247, 0.12);
+      font-family: 'Consolas', monospace;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      color: #e9d5ff;
+      font-size: 1.15rem;
+      line-height: 1.75;
+      margin: 2.5rem 0;
+    }
+    footer {
+      text-align: center;
+      padding: 70px 20px;
+      color: #9a8aff;
+      font-size: 1.2rem;
+      border-top: 1px solid rgba(168, 85, 247, 0.3);
+      margin-top: 120px;
+    }
+    @media (max-width: 900px) {
+      h1 { font-size: 4rem; }
+      nav { gap: 1.5rem; }
+      .nav-btn { padding: 14px 32px; font-size: 1.15rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars"></div>
+
+  <header>
+    <h1>ABYSS X</h1>
+    <p class="subtitle">Undetectable • Galaxy-Powered • Roblox Scripts</p>
+
+    <nav>
+      <a href="#main" class="nav-btn active" onclick="showSection('main')">Main</a>
+      <a href="#info" class="nav-btn" onclick="showSection('info')">Info</a>
+      <a href="#scripts" class="nav-btn" onclick="showSection('scripts')">Scripts</a>
+    </nav>
+  </header>
+
+  <section id="main" class="section active">
+    <h2>Welcome to the Abyss</h2>
+    <div class="creator-card">
+      <div class="creator-text">
+        <p>The creator behind <strong>AbyssX</strong> is young but already insane at this — still very young and making <strong>undetectable scripts</strong> that bypass everything. No detections, clean code, works like butter in every game. He doesn't show face, doesn't talk much, just drops heat and disappears back into the shadows. Trust the phantom — these scripts hit different. Built with real skill, not copy-paste trash.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="info" class="section">
+    <h2>Info & Links</h2>
+    <div style="text-align:center; margin: 5rem 0;">
+      <a href="https://www.youtube.com/@Abyssxscript" target="_blank" style="margin:2rem; display:inline-block;">
+        <button class="nav-btn" style="background:linear-gradient(45deg,#ff0000,#ff4444); color:white; border:none; padding:20px 60px; font-size:1.4rem;">
+          Subscribe on YouTube
+        </button>
+      </a>
+      <a href="https://scriptblox.com/u/DELTAxUSER" target="_blank" style="margin:2rem; display:inline-block;">
+        <button class="nav-btn" style="background:linear-gradient(45deg,#4f46e5,#6366f1); color:white; border:none; padding:20px 60px; font-size:1.4rem;">
+          ScriptBlox Profile
+        </button>
+      </a>
+    </div>
+  </section>
+
+  <section id="scripts" class="section">
+    <h2>Scripts</h2>
+    <div class="script-box">
+Abyss Universal Wallhop  [UNDETECTABLE]
+loadstring(game:HttpGet("https://pastebin.com/raw/MryG4Eca"))()
+    </div>
+    <!-- Add more scripts here when you want -->
+  </section>
+
+  <footer>
+    © 2026 AbyssX • Made in the Void • Stay Hidden
+  </footer>
+
+  <script>
+    // Twinkling stars
+    const starsContainer = document.querySelector('.stars');
+    for(let i = 0; i < 140; i++) {
+      const star = document.createElement('div');
+      star.className = 'twinkle';
+      const size = Math.random() * 4.5 + 1;
+      star.style.width = size + 'px';
+      star.style.height = size + 'px';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.animationDelay = Math.random() * 8 + 's';
+      starsContainer.appendChild(star);
+    }
+
+    // Category switch
+    function showSection(sectionId) {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+      
+      document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`.nav-btn[href="#${sectionId}"]`).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
